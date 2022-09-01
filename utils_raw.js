@@ -13,12 +13,10 @@ function createNavItem(text, url) {
 }
 
 function isLoaded() {
-    console.log('ran')
     if (document.readyState !== "complete" && document.readyState !== "loaded") {
         setTimeout(isLoaded, 5);
         return;
     }
-    console.log('bigran')
 
     var leftnav = document.getElementsByClassName("header__list--socials")[0];
     leftnav.classList.remove("header__list--socials");
