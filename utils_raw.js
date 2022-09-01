@@ -12,10 +12,19 @@ function createNavItem(text, url) {
     return container;
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
+function isLoaded() {
+    console.log('ran')
+    if (document.readyState !== "complete" && document.readyState !== "loaded") {
+        setTimeout(isLoaded, 5);
+        return;
+    }
+    console.log('bigran')
+
     var leftnav = document.getElementsByClassName("header__list--socials")[0];
     leftnav.classList.remove("header__list--socials");
     leftnav.appendChild(createNavItem("Twitch", "https://twitch.thebluebuckets.org/"));
     leftnav.appendChild(createNavItem("Org", "https://sc.thebluebuckets.org/"));
     leftnav.appendChild(createNavItem("Discord", "https://discord.thebluebuckets.org/"));
-});
+}
+
+isLoaded()
